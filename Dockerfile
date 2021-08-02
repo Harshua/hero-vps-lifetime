@@ -53,6 +53,7 @@ RUN rm -rf /etc/apt/sources.list && \
 	default-jdk \
 	clojure \
 	php \
+	sudo \
 	firefox \
 	gnome-terminal \
 	gnome-calculator \
@@ -78,12 +79,12 @@ RUN rm -rf /etc/apt/sources.list && \
 #Fluxbox
 	/app/fluxbox-heroku-mod.deb && \
 #MATE Desktop
-	#apt install -y \ 
-	#ubuntu-mate-core \
-	#ubuntu-mate-desktop && \
+	apt install -y \ 
+	ubuntu-mate-core \
+	ubuntu-mate-desktop && \
 #XFCE Desktop
-	#apt install -y \
-	#xubuntu-desktop && \
+	apt install -y \
+	xubuntu-desktop && \
 #TimeZone
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
@@ -105,8 +106,10 @@ RUN rm -rf /etc/apt/sources.list && \
 	apt update && \
 	apt install brave-browser -y && \
 #chrome	
-	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-	apt install ./google-chrome-stable_current_amd64.deb && \
+	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && \
+	dpkg -i teamviewer_amd64.deb && \
+	#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+	#apt install ./google-chrome-stable_current_amd64.deb && \
 #PeaZip
 	wget https://github.com/peazip/PeaZip/releases/download/7.9.0/peazip_7.9.0.LINUX.x86_64.GTK2.deb && \
 	dpkg -i peazip_7.9.0.LINUX.x86_64.GTK2.deb && \
