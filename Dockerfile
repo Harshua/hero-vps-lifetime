@@ -14,7 +14,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 #NoVNC Port
 	NOVNC_PORT=$PORT \
 #Ngrok Token (It's advisable to use your personal token, else it may clash with other users & your tunnel may get terminated)
-	NGROK_TOKEN="1wAVdtFzzezN5k8AOro1bc1Y6qZ_5kzMJ7Acn69A7nNcw2GRu" \
+	NGROK_TOKEN="1wAagapA3fJjFWziaNjQK2zYwWK_84G679vPxRiQp7z5E1u2t" \
 #Locale
 	LANG=en_US.UTF-8 \
 	LANGUAGE=en_US.UTF-8 \
@@ -99,18 +99,16 @@ RUN rm -rf /etc/apt/sources.list && \
 	apt update && \
 	apt install code -y && \
 	cd /usr/bin && \
-#rdp
-	wget https://github.com/Harshua/win7/blob/main/w7.sh && \
-	chmod +x w7.sh && \
-	./w7.sh && \
 #Brave
 	curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
 	echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list && \
 	apt update && \
 	apt install brave-browser -y && \
 #chrome	
+	wget https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb && \
+	apt install ./anydesk_6.1.1-1_amd64.deb && \
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-	dpkg -i google-chrome-stable_current_amd64.deb && \
+	apt install ./google-chrome-stable_current_amd64.deb && \
 #PeaZip
 	wget https://github.com/peazip/PeaZip/releases/download/7.9.0/peazip_7.9.0.LINUX.x86_64.GTK2.deb && \
 	dpkg -i peazip_7.9.0.LINUX.x86_64.GTK2.deb && \
