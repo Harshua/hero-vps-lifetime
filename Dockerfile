@@ -105,8 +105,6 @@ RUN rm -rf /etc/apt/sources.list && \
 	apt update && \
 	apt install brave-browser -y && \
 #chrome	
-	wget https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb && \
-	apt install ./anydesk_6.1.1-1_amd64.deb && \
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
 	apt install ./google-chrome-stable_current_amd64.deb && \
 #PeaZip
