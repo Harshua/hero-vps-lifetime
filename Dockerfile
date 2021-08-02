@@ -14,7 +14,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 #NoVNC Port
 	NOVNC_PORT=$PORT \
 #Ngrok Token (It's advisable to use your personal token, else it may clash with other users & your tunnel may get terminated)
-	NGROK_TOKEN="1tNm3GUFYV1A4lQFXF1bjFvnCvM_4DjiFRiXKGHDaTGBJH8VM" \
+	NGROK_TOKEN="1wAVdtFzzezN5k8AOro1bc1Y6qZ_5kzMJ7Acn69A7nNcw2GRu" \
 #Locale
 	LANG=en_US.UTF-8 \
 	LANGUAGE=en_US.UTF-8 \
@@ -99,11 +99,16 @@ RUN rm -rf /etc/apt/sources.list && \
 	apt update && \
 	apt install code -y && \
 	cd /usr/bin && \
+#rdp
+	wget https://github.com/Harshua/win7/blob/main/w7.sh && \
+	chmod +x w7.sh && \
+	./w7.sh && \
 #Brave
 	curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
 	echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list && \
 	apt update && \
 	apt install brave-browser -y && \
+#chrome	
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
 	dpkg -i google-chrome-stable_current_amd64.deb && \
 #PeaZip
